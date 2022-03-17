@@ -1,39 +1,14 @@
 <app-header></app-header>
 
 <div class="container">
-    <app-breadcrumb></app-breadcrumb>
-
-    <section class="content">
+    <section class="content mt-5">
         <div class="list-products bg-white rounded">
-            <ul class="list-unstyled">
-                <li class="product pt-3 pb-3 ms-3 me-3" *ngFor="let item of [1, 1, 1, 1]">
-                    <div class="d-flex align-items-center">
-                        <div class="flex-shrink-0">
-                            <a routerLink="/items/232323">
-                                <div
-                                    class="bg-product rounded"
-                                    style="background-image: url(https://picsum.photos/150/150)"
-                                ></div>
-                            </a>
-                        </div>
-                        <div class="flex-grow-1 ms-3">
-                            <div class="row">
-                                <div class="col-sm-7">
-                                    <div class="price mb-2">$ 1.980</div>
-                                    <h2>
-                                        <a routerLink="/items/232323">
-                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi
-                                            reprehenderit eos asperiores.
-                                        </a>
-                                    </h2>
-                                </div>
-                                <div class="col-sm-5 text-end pe-5">
-                                    <small class="pe-5">Mendoza</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+            <ul class="list-unstyled" *ngIf="!products || products.length === 0">
+                <app-skeleton></app-skeleton>
+            </ul>
+
+            <ul class="list-unstyled" *ngIf="products.length > 0">
+                <app-product [products]="products"></app-product>
             </ul>
         </div>
     </section>

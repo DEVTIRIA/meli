@@ -1,0 +1,10 @@
+.breadcrumb-item + .breadcrumb-item::before {
+    content: '>';
+}
+.breadcrumb-item {
+    font-size: 1rem;
+    a {
+        color: #6c757d;
+        text-decoration: none;
+    }
+}

@@ -1,0 +1,31 @@
+.list-products {
+    .product {
+        border-bottom: 1px solid #f0f0f0;
+    }
+    .product:last-child {
+        border-bottom: none !important;
+    }
+}
+.bg-product {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 150px;
+    overflow: hidden;
+    width: 150px;
+}
+.price {
+    font-size: 1.5rem;
+}
+h2 {
+    font-size: 1.3rem;
+    font-weight: 300;
+
+    a {
+        color: initial;
+        text-decoration: none;
+    }
+}
+small {
+    color: #6c757d;
+}

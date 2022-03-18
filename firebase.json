@@ -1,0 +1,7 @@
+{
+    "hosting": {
+        "public": "dist/test-meli",
+        "site": "pruebameli",
+        "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+    }
+}

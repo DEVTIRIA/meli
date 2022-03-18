@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { IResult } from 'src/app/interfaces/service';
 import { ProductsService } from 'src/app/services/products.service';
@@ -11,13 +12,18 @@ import { ProductsService } from 'src/app/services/products.service';
 export class ProductDetailComponent implements OnInit {
     public product!: IResult;
 
-    constructor(private activatedRoute: ActivatedRoute, private _productsService: ProductsService) {}
+    constructor(
+        private activatedRoute: ActivatedRoute,
+        private _productsService: ProductsService,
+        private title: Title
+    ) {}
 
     ngOnInit(): void {
         const pid = this.activatedRoute.snapshot.paramMap.get('id') || '';
 
         this._productsService.getProductByID(pid).subscribe((product) => {
             this.product = product;
+            this.title.setTitle(product.title);
         });
     }
 }

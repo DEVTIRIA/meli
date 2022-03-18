@@ -18,25 +18,49 @@ export class ProductsService {
 
     getProducts(cat: string = 'MLA1648') {
         return this.http
-            .get<IService>(`${API_URL}/sites/MLA/search?category=${cat}&limit=${LIMIT}`)
+            .get<IService>(`${API_URL}/sites/MLA/search?category=${cat}&limit=${LIMIT}`, {
+                headers: {
+                    'author': 'Henry Alejandro Tiria',
+                },
+            })
             .pipe(map((resp) => resp.results));
     }
 
     getProductByID(pid: string) {
-        return this.http.get<IResult>(`${API_URL}/items/${pid}`);
+        return this.http.get<IResult>(`${API_URL}/items/${pid}`, {
+            headers: {
+                'author': 'Henry Alejandro Tiria',
+            },
+        });
     }
 
     getDescription(pid: string) {
-        return this.http.get<IDescription>(`${API_URL}/items/${pid}/description`).pipe(map((resp) => resp.plain_text));
+        return this.http
+            .get<IDescription>(`${API_URL}/items/${pid}/description`, {
+                headers: {
+                    'author': 'Henry Alejandro Tiria',
+                },
+            })
+            .pipe(map((resp) => resp.plain_text));
     }
 
     getCategoryByID(cid: string) {
-        return this.http.get<ICategorie>(`${API_URL}/categories/${cid}`).pipe(map((resp) => resp.path_from_root));
+        return this.http
+            .get<ICategorie>(`${API_URL}/categories/${cid}`, {
+                headers: {
+                    'author': 'Henry Alejandro Tiria',
+                },
+            })
+            .pipe(map((resp) => resp.path_from_root));
     }
 
     getProductsByTerm(term: RegExp) {
         return this.http
-            .get<IService>(`${API_URL}/sites/MLA/search?q=​${term}&limit=${LIMIT}`)
+            .get<IService>(`${API_URL}/sites/MLA/search?q=​${term}&limit=${LIMIT}`, {
+                headers: {
+                    'author': 'Henry Alejandro Tiria',
+                },
+            })
             .pipe(map((resp) => resp.results));
     }
 }

@@ -4,7 +4,7 @@
             <a routerLink="/">Home</a>
         </li>
         <li class="breadcrumb-item" *ngFor="let category of categories">
-            <a [routerLink]="category.id">{{ category.name }}</a>
+            <a [routerLink]="['/items']" [queryParams]="{ cat: category.id }">{{ category.name }}</a>
         </li>
     </ol>
 </nav>

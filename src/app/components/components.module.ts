@@ -7,6 +7,7 @@ import { SkeletonComponent } from './skeleton/skeleton.component';
 import { ProductComponent } from './product/product.component';
 import { SkeletonSingleComponent } from './skeleton-single/skeleton-single.component';
 import { ProductSingleComponent } from './product-single/product-single.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -16,7 +17,7 @@ import { ProductSingleComponent } from './product-single/product-single.componen
         ProductComponent,
         ProductSingleComponent,
     ],
-    imports: [CommonModule, PagesRoutingModule],
+    imports: [CommonModule, PagesRoutingModule, FormsModule],
     exports: [SearchComponent, SkeletonComponent, SkeletonSingleComponent, ProductComponent, ProductSingleComponent],
 })
 export class ComponentsModule {}

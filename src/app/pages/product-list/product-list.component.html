@@ -1,2 +1,15 @@
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque enim nobis repellendus ipsa debitis, ab commodi impedit,
-obcaecati, vel magnam aliquam! Commodi, temporibus aliquam saepe blanditiis perferendis illo perspiciatis quod.
+<app-header></app-header>
+
+<div class="container">
+    <section class="content mt-5">
+        <div class="list-products bg-white rounded">
+            <ul class="list-unstyled" *ngIf="!products || products.length === 0">
+                <app-skeleton></app-skeleton>
+            </ul>
+
+            <ul class="list-unstyled" *ngIf="products.length > 0">
+                <app-product [products]="products"></app-product>
+            </ul>
+        </div>
+    </section>
+</div>

@@ -8,6 +8,7 @@ import { IDescription } from '../interfaces/description';
 import { ICategorie } from '../interfaces/categories';
 
 const API_URL = environment.API_URL;
+const LIMIT = 4;
 
 @Injectable({
     providedIn: 'root',
@@ -15,9 +16,9 @@ const API_URL = environment.API_URL;
 export class ProductsService {
     constructor(private http: HttpClient) {}
 
-    getProducts() {
+    getProducts(cat: string = 'MLA1648') {
         return this.http
-            .get<IService>(`${API_URL}/sites/MLA/search?category=MLA1648`)
+            .get<IService>(`${API_URL}/sites/MLA/search?category=${cat}&limit=${LIMIT}`)
             .pipe(map((resp) => resp.results));
     }
 
@@ -31,5 +32,11 @@ export class ProductsService {
 
     getCategoryByID(cid: string) {
         return this.http.get<ICategorie>(`${API_URL}/categories/${cid}`).pipe(map((resp) => resp.path_from_root));
+    }
+
+    getProductsByTerm(term: RegExp) {
+        return this.http
+            .get<IService>(`${API_URL}/sites/MLA/search?q=​${term}&limit=${LIMIT}`)
+            .pipe(map((resp) => resp.results));
     }
 }

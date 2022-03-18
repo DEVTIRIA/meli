@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Result } from 'src/app/interfaces/service';
+import { IResult } from 'src/app/interfaces/service';
 
 @Component({
     selector: 'app-product',
@@ -7,7 +7,7 @@ import { Result } from 'src/app/interfaces/service';
     styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent implements OnInit {
-    @Input() products: Result[] = [];
+    @Input() products: IResult[] = [];
 
     constructor() {}
 

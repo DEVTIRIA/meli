@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs';
 
-import { IService } from '../interfaces/service';
+import { IResult, IService } from '../interfaces/service';
+import { IDescription } from '../interfaces/description';
+import { ICategorie } from '../interfaces/categories';
 
 const API_URL = environment.API_URL;
 
@@ -17,5 +19,17 @@ export class ProductsService {
         return this.http
             .get<IService>(`${API_URL}/sites/MLA/search?category=MLA1648`)
             .pipe(map((resp) => resp.results));
+    }
+
+    getProductByID(pid: string) {
+        return this.http.get<IResult>(`${API_URL}/items/${pid}`);
+    }
+
+    getDescription(pid: string) {
+        return this.http.get<IDescription>(`${API_URL}/items/${pid}/description`).pipe(map((resp) => resp.plain_text));
+    }
+
+    getCategoryByID(cid: string) {
+        return this.http.get<ICategorie>(`${API_URL}/categories/${cid}`).pipe(map((resp) => resp.path_from_root));
     }
 }

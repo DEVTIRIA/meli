@@ -8,3 +8,6 @@
         text-decoration: none;
     }
 }
+.breadcrumb .breadcrumb-item:last-child a {
+    font-weight: bold;
+}

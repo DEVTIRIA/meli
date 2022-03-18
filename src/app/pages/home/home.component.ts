@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Result } from 'src/app/interfaces/service';
+import { IResult } from 'src/app/interfaces/service';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { ProductsService } from 'src/app/services/products.service';
     styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-    public products: Result[] = [];
+    public products: IResult[] = [];
 
     constructor(private _productsService: ProductsService) {}
 

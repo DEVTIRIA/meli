@@ -2,7 +2,7 @@ export interface IService {
     site_id: string;
     country_default_time_zone: string;
     paging: Paging;
-    results: Result[];
+    results: IResult[];
     sort: Country;
     available_sorts: Country[];
     filters: Filter[];
@@ -35,7 +35,7 @@ interface Value2 {
     path_from_root: Country[];
 }
 
-export interface Result {
+export interface IResult {
     id: string;
     site_id: string;
     title: string;
@@ -53,6 +53,7 @@ export interface Result {
     permalink: string;
     thumbnail: string;
     thumbnail_id: string;
+    pictures: Picture[];
     accepts_mercadopago: boolean;
     installments: Installments;
     address: Address;
@@ -61,6 +62,7 @@ export interface Result {
     attributes: Attribute[];
     original_price?: number;
     category_id: string;
+    channels: string[];
     official_store_id?: number;
     domain_id: string;
     catalog_product_id?: string;
@@ -319,4 +321,13 @@ interface Paging {
     primary_results: number;
     offset: number;
     limit: number;
+}
+
+interface Picture {
+    id: string;
+    url: string;
+    secure_url: string;
+    size: string;
+    max_size: string;
+    quality: string;
 }

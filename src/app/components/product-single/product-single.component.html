@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-md-8 text-center">
+        <img [src]="product.pictures[0].url" class="img-fluid" [alt]="product.title" height="600" />
+    </div>
+    <div class="col-md-4">
+        <div class="sales">{{ product.condition }} - {{ product.sold_quantity }} vendidos</div>
+        <h1 class="mt-2">{{ product.title }}</h1>
+        <h3 class="mt-4 mb-5">$ {{ product.price | number }}<sup>00</sup></h3>
+
+        <div class="d-grid gap-2">
+            <a [href]="product.permalink" target="_blank" class="btn btn-primary btn-lg" type="button">Comprar</a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <h4 class="mb-4">Descripción del producto</h4>
+        <p>{{ description }}</p>
+    </div>
+</div>

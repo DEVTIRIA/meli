@@ -1,8 +1,8 @@
 <div class="row">
-    <div class="col-md-8 text-center">
+    <div class="col-md-6 col-lg-8 text-center">
         <img [src]="product.pictures[0].url" class="img-fluid" [alt]="product.title" height="600" />
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6 col-lg-4">
         <div class="sales">{{ product.condition }} - {{ product.sold_quantity }} vendidos</div>
         <h1 class="mt-2">{{ product.title }}</h1>
         <h3 class="mt-4 mb-5">$ {{ product.price | number }}<sup>00</sup></h3>

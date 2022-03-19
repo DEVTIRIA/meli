@@ -27,3 +27,30 @@ h2 {
 small {
     color: #6c757d;
 }
+
+@media (max-width: 767px) {
+    .product {
+        h2 {
+            font-size: 1rem;
+        }
+        .price {
+            font-size: 1.3rem;
+        }
+        .d-flex {
+            flex-direction: column;
+        }
+        small,
+        .col-sm-5 {
+            padding-right: 0.7rem !important;
+        }
+    }
+
+    .skeleton {
+        .flex-grow-1 {
+            width: 100% !important;
+        }
+        .price {
+            margin-top: 1.5rem;
+        }
+    }
+}

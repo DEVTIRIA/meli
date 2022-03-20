@@ -8,7 +8,6 @@ import { IDescription } from '../interfaces/description';
 import { ICategorie } from '../interfaces/categories';
 
 const API_URL = environment.API_URL;
-const LIMIT = 4;
 
 @Injectable({
     providedIn: 'root',
@@ -18,7 +17,7 @@ export class ProductsService {
 
     getProducts(cat: string = 'MLA1648') {
         return this.http
-            .get<IService>(`${API_URL}/sites/MLA/search?category=${cat}&limit=${LIMIT}`, {
+            .get<IService>(`${API_URL}/sites/MLA/search?category=${cat}`, {
                 headers: {
                     'author': 'Henry Alejandro Tiria',
                 },
@@ -56,7 +55,7 @@ export class ProductsService {
 
     getProductsByTerm(term: RegExp) {
         return this.http
-            .get<IService>(`${API_URL}/sites/MLA/search?q=​${term}&limit=${LIMIT}`, {
+            .get<IService>(`${API_URL}/sites/MLA/search?q=​${term}&limit=4`, {
                 headers: {
                     'author': 'Henry Alejandro Tiria',
                 },
